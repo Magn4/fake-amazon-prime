@@ -62,7 +62,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 255));
-        jLabel2.setText("Sign in");
+        jLabel2.setText("SIGN IN");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 160, 50));
 
         User.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -102,11 +102,6 @@ public class Login extends javax.swing.JFrame {
                 jPasswordField1FocusLost(evt);
             }
         });
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
-            }
-        });
         jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 190, 30));
 
         B2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -118,11 +113,6 @@ public class Login extends javax.swing.JFrame {
         jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jCheckBox1MouseClicked(evt);
-            }
-        });
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
             }
         });
         jPanel2.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 140, 30));
@@ -214,14 +204,6 @@ public class Login extends javax.swing.JFrame {
             jPasswordField1.setEchoChar('*');
         }
     }//GEN-LAST:event_jCheckBox1MouseClicked
-
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**
      * @param args the command line arguments
