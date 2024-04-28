@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.main;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -39,18 +40,19 @@ public class Login extends javax.swing.JFrame {
         B2 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("LOG IN");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 120, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 460, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\com\\ressources\\GIF_platzhalter.gif"));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 490, 500));
@@ -60,8 +62,9 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("SIGN IN");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 160, 50));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 340, 50));
 
         User.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         User.setText("Username");
@@ -76,6 +79,11 @@ public class Login extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextField1FocusLost(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
             }
         });
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 190, 30));
@@ -100,6 +108,11 @@ public class Login extends javax.swing.JFrame {
                 jPasswordField1FocusLost(evt);
             }
         });
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
         jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 190, 30));
 
         B2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -108,25 +121,55 @@ public class Login extends javax.swing.JFrame {
 
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jCheckBox1.setText("Show Password");
-        jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBox1MouseClicked(evt);
+        jCheckBox1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jCheckBox1StateChanged(evt);
+            }
+        });
+        jCheckBox1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jCheckBox1KeyPressed(evt);
             }
         });
         jPanel2.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 140, 30));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Sign in");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
             }
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 130, 40));
 
+        jLabel4.setBackground(new java.awt.Color(51, 153, 255));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel4.setText("no Account?");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 90, -1));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 340, 500));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -164,20 +207,46 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jPasswordField1FocusLost
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        Registration regi = new Registration();
+        regi.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
+          jButton1.doClick();
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jCheckBox1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBox1StateChanged
+        if(jCheckBox1.isSelected()){
+            jPasswordField1.setEchoChar((char)0);
+        }else if(String.valueOf(jPasswordField1.getPassword()).equals("Enter Password")){
+            jPasswordField1.setEchoChar((char)0);
+        }else{
+            jPasswordField1.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jCheckBox1StateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        LoginCheck a = new LoginCheck(jTextField1.getText(),jPasswordField1.getText());
         if(jTextField1.getText().equals("") || jTextField1.getText().equals("Enter Username")){
             B1.setText("?");
             B2.setText("");
             jPasswordField1.setForeground(new java.awt.Color(204,204,204));
             jPasswordField1.setEchoChar((char)0);
             jPasswordField1.setText("Enter Password");
-        }else if(String.valueOf(jPasswordField1.getPassword()).equals("")){
+        }else if(String.valueOf(jPasswordField1.getPassword()).equals("")||String.valueOf(jPasswordField1.getPassword()).equals("Enter Password")){
             B2.setText("?");
             B1.setText("");
-            //jPasswordField1.setText("");
             jPasswordField1.setForeground(new java.awt.Color(204,204,204));
             jPasswordField1.setEchoChar((char)0);
             jPasswordField1.setText("Enter Password");
+        }else if(a.userCompare()){
+            MainPage page = new MainPage();
+            page.setVisible(true);
+            this.dispose();
         }else{
             jPasswordField1.setText("");
             B1.setText("");
@@ -186,22 +255,25 @@ public class Login extends javax.swing.JFrame {
             jPasswordField1.setEchoChar((char)0);
             jPasswordField1.setText("Enter Password");
         }
-        if(jTextField1.getText().equals("Admin")){
-            SignUp x = new SignUp();
-            x.setVisible(true);
-            this.dispose();
-        }
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MouseClicked
-        if(jCheckBox1.isSelected()){
-            jPasswordField1.setEchoChar((char)0);
-        }else if(String.valueOf(jPasswordField1.getPassword()).equals("Enter Password")){
-            jPasswordField1.setEchoChar((char)0);
-        }else{
-            jPasswordField1.setEchoChar('*');
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
+          jButton1.doClick();
         }
-    }//GEN-LAST:event_jCheckBox1MouseClicked
+    }//GEN-LAST:event_jPasswordField1KeyPressed
+
+    private void jCheckBox1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCheckBox1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
+          jButton1.doClick();
+        }
+    }//GEN-LAST:event_jCheckBox1KeyPressed
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
+          jButton1.doClick();
+        }
+    }//GEN-LAST:event_jButton1KeyPressed
 
     /**
      * @param args the command line arguments
@@ -248,6 +320,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
