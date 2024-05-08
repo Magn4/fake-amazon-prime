@@ -54,7 +54,19 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("LOG IN");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 460, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\com\\ressources\\GIF_platzhalter.gif"));
+        String path;
+    if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+    // If the operating system is Windows
+    path = System.getProperty("user.dir") + "\\src\\main\\java\\com\\ressources\\GIF_platzhalter.gif";
+    } else {
+    // For other operating systems (like macOS)
+    path = System.getProperty("user.dir") + "/src/main/java/com/ressources/GIF_platzhalter.gif";
+    }
+
+    jLabel1.setIcon(new javax.swing.ImageIcon(path));
+
+
+        // jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\com\\ressources\\GIF_platzhalter.gif"));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 490, 500));
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
