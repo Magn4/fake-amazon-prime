@@ -21,6 +21,7 @@ public class App extends Application {
         /*hier können wir css hinzufügen
         scene.getStylesheets().add(getClass().getResource("fontstyle.css").toExternalForm());*/
         stage.setTitle("Fake-Amazon-Prime");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

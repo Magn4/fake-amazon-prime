@@ -116,8 +116,13 @@ public class PrimaryController implements Initializable {
     }
 
     @FXML
-    private void register(MouseEvent event) {
-        System.out.println("ich brauche noch ein neues fxml");
+    private void register(MouseEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("test.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
     }
 
     @FXML
