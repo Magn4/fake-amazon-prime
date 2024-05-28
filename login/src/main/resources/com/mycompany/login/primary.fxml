@@ -20,17 +20,17 @@
                   <Font name="Calibri Bold" size="36.0" />
                </font>
             </Label>
-            <Button fx:id="button1" layoutX="128.0" layoutY="381.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="32.0" prefWidth="85.0" text="Login">
-               <font>
-                  <Font name="Calibri Bold" size="18.0" />
-               </font>
-            </Button>
             <TextField fx:id="inputUserID" layoutX="72.0" layoutY="182.0" prefHeight="32.0" prefWidth="196.0" promptText="Username">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="inputPassword" layoutX="72.0" layoutY="249.0" prefHeight="32.0" prefWidth="196.0" promptText="Password">
+            <TextField fx:id="pass_text" focusTraversable="false" layoutX="72.0" layoutY="249.0" onAction="#handleButtonAction" prefHeight="32.0" prefWidth="196.0" promptText="Password" visible="false">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="pass_hidden" layoutX="72.0" layoutY="249.0" onAction="#handleButtonAction" prefHeight="32.0" prefWidth="196.0" promptText="Password">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
@@ -45,13 +45,23 @@
                   <Font name="Calibri Bold" size="18.0" />
                </font>
             </Label>
-            <CheckBox fx:id="checkbox" layoutX="114.0" layoutY="297.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="112.0" text="Show Passoword" />
+            <Button fx:id="button1" layoutX="128.0" layoutY="381.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="32.0" prefWidth="85.0" text="Login">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Button>
+            <CheckBox fx:id="pass_toggle" focusTraversable="false" layoutX="114.0" layoutY="297.0" mnemonicParsing="false" onAction="#showpassword" prefHeight="17.0" prefWidth="112.0" text="Show Password" />
             <Label fx:id="labelregister" alignment="CENTER" layoutX="103.0" layoutY="441.0" onMouseClicked="#register" prefHeight="17.0" prefWidth="134.0" text="Join us!" textFill="#0926fc">
                <font>
                   <Font name="Calibri Italic" size="12.0" />
                </font>
             </Label>
-            <CheckBox fx:id="checkboxdb" layoutX="114.0" layoutY="325.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="138.0" text="Jakub's Database" />
+            <CheckBox fx:id="checkboxdb" focusTraversable="false" layoutX="114.0" layoutY="325.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="138.0" text="Jakub's Database" />
+            <Label fx:id="warnung" alignment="CENTER" layoutX="32.0" layoutY="143.0" prefHeight="17.0" prefWidth="282.0" textFill="RED">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </right>
