@@ -46,10 +46,12 @@ public class SecondaryController implements Initializable {
     @FXML
     private void logout(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("primary.fxml"));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(false);
+        stage.centerOnScreen();
+        stage.show();
     }
 
 }
