@@ -44,7 +44,7 @@ public class LoginCheck {
         try{
             
             //con = connection
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","asd123");
+            con = dbconnect.connect();
             //stm = Statement
             Statement stm = con.createStatement();
             //sql 
