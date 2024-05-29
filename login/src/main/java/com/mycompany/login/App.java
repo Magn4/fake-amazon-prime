@@ -18,8 +18,15 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"));
+        /*hier können wir css hinzufügen
+        scene.getStylesheets().add(getClass().getResource("fontstyle.css").toExternalForm());*/
+        stage.setTitle("Fake-Amazon-Prime");
+        stage.setResizable(false);
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
+        stage.setMinHeight(stage.getHeight());
+        stage.setMinWidth(stage.getWidth());
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -32,7 +39,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 
 }
