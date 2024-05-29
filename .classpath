@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+    <classpathentry kind="src" path="src"/>
+    <classpathentry kind="lib" path="lib/javafx-base-20.0.2.jar"/>
+    <classpathentry kind="lib" path="lib/javafx-controls-20.0.2.jar"/>
+    <classpathentry kind="lib" path="lib/javafx-fxml-20.0.2.jar"/>
+    <classpathentry kind="lib" path="lib/javafx-graphics-20.0.2.jar"/>
+    <classpathentry kind="lib" path="lib/javafx-media-20.0.2.jar"/>
+    <classpathentry kind="lib" path="lib/javafx-swing-20.0.2.jar"/>
+    <classpathentry kind="lib" path="lib/javafx-web-20.0.2.jar"/>
+    <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+    <classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.mycompany.login/com.mycompany.login.App",
+            "projectName": "fake-amazon-prime"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "com.mycompany.login.App",
+            "vmArgs": "--module-path ./lib --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
