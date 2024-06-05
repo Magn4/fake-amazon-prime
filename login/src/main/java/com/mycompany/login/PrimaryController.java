@@ -11,17 +11,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -30,27 +24,13 @@ import javafx.stage.Stage;
  * @author kjh27
  */
 public class PrimaryController implements Initializable {
-    
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @FXML
     private Button button1;
     @FXML
     private TextField inputUserID;
     @FXML
-    private Label labelregister;
-    @FXML
-    private CheckBox checkboxdb;
-    @FXML
-    private Label warnung;
-    @FXML
-    private PasswordField pass_hidden;
-    @FXML
-    private CheckBox pass_toggle;
-    @FXML
-    private TextField pass_text;
+    private PasswordField inputPassword;
 
     /**
      * Initializes the controller class.
@@ -62,85 +42,22 @@ public class PrimaryController implements Initializable {
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
-        String username = inputUserID.getText();
-        String password;
-        if(pass_toggle.isSelected()){
-            password = pass_text.getText();
-        } else {
-            password = pass_hidden.getText();
-        }
-        if(checkboxdb.isSelected()){
-            LoginCheck a = new LoginCheck(username,password);
-            if(a.userCompare()){
+           if(event.getSource() == button1){
+            String username = inputUserID.getText();
+            String password = inputPassword.getText();
+            if(username.equalsIgnoreCase("Admin") && password.equalsIgnoreCase("admin")){
                 System.out.println("Login success.");
-                root = FXMLLoader.load(getClass().getResource("secondary.fxml"));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setMaximized(true);
-                stage.show();
+                
+                Stage primaryStage = new Stage();
+                Parent root = FXMLLoader.load(getClass().getResource("secondary.fxml"));
+                Scene scene = new Scene(root);
+                primaryStage.setScene(scene);
+                primaryStage.show();
+                
+                
             }else{
                 System.out.println("Login failure.");
-            pass_hidden.setText("");
-            pass_text.setText("");
-            if(pass_toggle.isSelected()){
-                pass_text.requestFocus();
-                pass_text.positionCaret(pass_text.getText().length()); 
-            } else {
-                pass_hidden.requestFocus();
-                pass_hidden.positionCaret(pass_hidden.getText().length());
             }
-            warnung.setText("Username or Password is wrong!");
-            }
-        }else{
-            if(username.equals("Admin") && password.equals("admin")){
-                System.out.println("Login success.");
-                root = FXMLLoader.load(getClass().getResource("secondary.fxml"));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setMaximized(true);
-                stage.show();
-            }else{
-                System.out.println("Login failure.");
-            pass_hidden.setText("");
-            pass_text.setText("");
-            if(pass_toggle.isSelected()){
-                pass_text.requestFocus();
-                pass_text.positionCaret(pass_text.getText().length()); 
-            } else {
-                pass_hidden.requestFocus();
-                pass_hidden.positionCaret(pass_hidden.getText().length());
-            }
-            warnung.setText("Username or Password is wrong!");
-            }
-        }       
-    }
-
-    @FXML
-    private void register(MouseEvent event) {
-        System.out.println("ich brauche noch ein neues fxml");
-    }
-
-    @FXML
-    private void showpassword(ActionEvent event) {
-        if(pass_toggle.isSelected()){
-            pass_text.setText(pass_hidden.getText());
-            pass_text.setVisible(true);
-            pass_text.setFocusTraversable(true);
-            pass_hidden.setVisible(false);
-            pass_hidden.setFocusTraversable(false);
-            pass_text.requestFocus();
-            pass_text.positionCaret(pass_text.getText().length());
-            return;
-        } else {
-            pass_hidden.setText(pass_text.getText());
-            pass_hidden.setVisible(true);
-            pass_hidden.setFocusTraversable(true);
-            pass_text.setVisible(false);
-            pass_text.setFocusTraversable(false);
-            pass_hidden.requestFocus();
-            pass_hidden.positionCaret(pass_hidden.getText().length());
         }
     }
     
