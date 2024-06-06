@@ -44,10 +44,15 @@ public class LoginCheck {
         try{
             
             //con = connection
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","asd123");
+            con = dbconnect.connect();
+            /*
+            Ist eine Alternative
+            con = DriverManager.getConnection(dbconnect.getRoad(),dbconnect.getUser(),dbconnect.getPassword());            
+            */
+           
             //stm = Statement
             Statement stm = con.createStatement();
-            //sql 
+            
             
             String sql = "SELECT * FROM userlogin.user_table WHERE BINARY UserName='"+this.getUser()+"' and BINARY Password='"+this.getPassword()+"';";
             

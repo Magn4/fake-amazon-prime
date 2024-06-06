@@ -19,8 +19,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -117,11 +115,19 @@ public class PrimaryController implements Initializable {
 
     @FXML
     private void register(MouseEvent event) throws IOException {
+<<<<<<< Updated upstream
         root = FXMLLoader.load(getClass().getResource("test.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.setMaximized(true);
+=======
+        System.out.println("wechsel zu registration.");
+        root = FXMLLoader.load(getClass().getResource("register.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+>>>>>>> Stashed changes
         stage.show();
     }
 
@@ -135,7 +141,6 @@ public class PrimaryController implements Initializable {
             pass_hidden.setFocusTraversable(false);
             pass_text.requestFocus();
             pass_text.positionCaret(pass_text.getText().length());
-            return;
         } else {
             pass_hidden.setText(pass_text.getText());
             pass_hidden.setVisible(true);
