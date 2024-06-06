@@ -115,19 +115,12 @@ public class PrimaryController implements Initializable {
 
     @FXML
     private void register(MouseEvent event) throws IOException {
-<<<<<<< Updated upstream
-        root = FXMLLoader.load(getClass().getResource("test.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setMaximized(true);
-=======
+
         System.out.println("wechsel zu registration.");
         root = FXMLLoader.load(getClass().getResource("register.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
->>>>>>> Stashed changes
         stage.show();
     }
 
