@@ -1,12 +1,11 @@
 package com.mycompany.login;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 /**
  * JavaFX App
@@ -22,6 +21,7 @@ public class App extends Application {
         scene.getStylesheets().add(getClass().getResource("fontstyle.css").toExternalForm());*/
         stage.setTitle("Fake-Amazon-Prime");
         stage.setResizable(false);
+
         stage.setScene(scene);
         stage.show();
     }
@@ -36,7 +36,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 
 }

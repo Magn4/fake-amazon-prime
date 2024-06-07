@@ -45,12 +45,6 @@ public class LoginCheck {
             
             //con = connection
             con = dbconnect.connect();
-            /*
-            Ist eine Alternative
-            con = DriverManager.getConnection(dbconnect.getRoad(),dbconnect.getUser(),dbconnect.getPassword());            
-            */
-           
-            //stm = Statement
             Statement stm = con.createStatement();
             
             
