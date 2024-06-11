@@ -45,22 +45,23 @@
                   <AnchorPane>
                      <children>
                         <PasswordField fx:id="password_text" prefHeight="25.0" prefWidth="150.0" promptText="Password" />
-                        <TextField focusTraversable="false" promptText="Password" visible="false" />
-                        <Button fx:id="password_button" layoutX="130.0" layoutY="3.0" maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onMouseClicked="#passwordshow" style="-fx-background-radius: 5em; -fx-padding: 0px; -fx-background-color: transparent;">
+                        <TextField fx:id="password_textshow" focusTraversable="false" prefHeight="25.0" prefWidth="150.0" promptText="Password" visible="false" />
+                        <Button fx:id="password_button" focusTraversable="false" layoutX="129.0" layoutY="3.0" maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onMouseClicked="#passwordshow" style="-fx-background-radius: 5em; -fx-padding: 0px; -fx-background-color: transparent;">
                            <graphic>
                               <Label text="👁">
                                  <font>
                                     <Font size="18.0" />
-                                 </font></Label>
+                                 </font>
+                              </Label>
                            </graphic>
                         </Button>
                      </children>
                   </AnchorPane>
                   <AnchorPane>
                      <children>
-                        <PasswordField fx:id="rep_text" prefHeight="25.0" prefWidth="150.0" promptText="Password" />
-                        <TextField focusTraversable="false" promptText="Password" visible="false" />
-                        <Button fx:id="rep_button" layoutX="130.0" layoutY="3.0" maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onMouseClicked="#repshow" style="-fx-background-radius: 5em; -fx-padding: 0px; -fx-background-color: transparent;">
+                        <PasswordField fx:id="rep_text" onKeyTyped="#passwordtextcheck" prefHeight="25.0" prefWidth="150.0" promptText="Password" />
+                        <TextField fx:id="rep_textshow" focusTraversable="false" onKeyTyped="#passwordtextcheck" prefHeight="25.0" prefWidth="150.0" promptText="Password" visible="false" />
+                        <Button fx:id="rep_button" focusTraversable="false" layoutX="130.0" layoutY="3.0" maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onMouseClicked="#repshow" style="-fx-background-radius: 5em; -fx-padding: 0px; -fx-background-color: transparent;">
                            <graphic>
                               <Label text="👁">
                                  <font>
@@ -83,9 +84,14 @@
                   <Font name="Calibri Italic" size="14.0" />
                </font>
             </Button>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="246.0" prefHeight="42.0" prefWidth="302.0" text="error text" textFill="#c91e1e">
+            <Label fx:id="errortext" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="246.0" prefHeight="42.0" prefWidth="302.0" textFill="#c91e1e">
                <font>
                   <Font name="Calibri Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="repcheck" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="361.0" layoutY="194.0" prefHeight="25.0" prefWidth="25.0" textFill="#31c71e">
+               <font>
+                  <Font name="Calibri Italic" size="18.0" />
                </font>
             </Label>
          </children>
