@@ -89,3 +89,35 @@ CREATE TABLE movielanguage (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 );
+
+ALTER TABLE userlogin.comment
+ADD CHECK (Comment_rating >=1 AND Comment_rating <= 5);
+-- Sample data
+
+INSERT INTO user (User_name, User_password, User_email, User_admin) VALUES
+('john_doe', 'password123', 'john.doe@example.com', false),
+('jane_doe', 'securepass', 'jane.doe@example.com', false);
+
+INSERT INTO movie (Movie_title, Movie_description, Movie_picture, Movie_banner, Movie_release, Movie_trailerURL) VALUES
+('Example Movie 1', 'Description of example movie 1', 'picture1.jpg', 'banner1.jpg', '2024-01-01', 'trailer1.com'),
+('Example Movie 2', 'Description of example movie 2', 'picture2.jpg', 'banner2.jpg', '2024-02-01', 'trailer2.com');
+
+INSERT INTO genre (Genre_name) VALUES
+('Action'),
+('Comedy');
+
+INSERT INTO language (Language_name) VALUES
+('English'),
+('Spanish');
+
+INSERT INTO moviegenre (Movie_ID, Genre_ID) VALUES
+(1, 1),
+(2, 2); 
+
+INSERT INTO movielanguage (Movie_ID, Language_ID) VALUES
+(1, 1), 
+(2, 2); 
+
+INSERT INTO comment (User_ID, Movie_ID, Comment_text, Comment_rating, Comment_date) VALUES
+(1, 1, 'Great movie!', 5, NOW()),
+(2, 2, 'Not bad', 3, NOW());
