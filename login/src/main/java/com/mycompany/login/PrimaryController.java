@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -34,11 +33,7 @@ public class PrimaryController implements Initializable {
     private Parent root;
 
     @FXML
-    private Button button1;
-    @FXML
     private TextField inputUserID;
-    @FXML
-    private Label labelregister;
     @FXML
     private CheckBox checkboxdb;
     @FXML
