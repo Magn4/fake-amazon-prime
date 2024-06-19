@@ -9,10 +9,15 @@ import java.sql.*;
  *
  * @author jrwie
  */
+
+ /**
+  * Updated connection to database with Dynamic methods
+  * @author Taha
+  */
 public class dbconnect {
-    private static String user = "root";
-    private static String password = "asd123";
-    private static String road = "jdbc:mysql://localhost:3306/mysql";
+    private static String user = System.getenv("DB_USER");
+    private static String password = System.getenv("DB_PASSWORD");
+    private static String road = "jdbc:mysql://" + System.getenv("DB_HOST") + ":" + System.getenv("DB_PORT") + "/" + System.getenv("DB_NAME");
     
     public dbconnect(){
     }
@@ -20,13 +25,15 @@ public class dbconnect {
     public static Connection connect(){
         Connection con;
         try{
-            con = DriverManager.getConnection(road,user,password);
-            return(con);
+            con = DriverManager.getConnection(road, user, password);
+            return con;
         }catch (Exception e){
             System.out.println("bin in der catch von dbconnect");
+            e.printStackTrace();
         }
         return null;
     }
+
     public static String getUser(){
         return user;
     }

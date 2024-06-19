@@ -1,0 +1,3 @@
+CREATE USER 'taha'@'%' IDENTIFIED WITH caching_sha2_password BY 'password123';
+GRANT ALL PRIVILEGES ON *.* TO 'taha'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
