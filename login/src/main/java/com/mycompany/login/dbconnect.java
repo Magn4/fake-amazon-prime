@@ -1,46 +1,40 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.login;
-import java.sql.*;
 
-/**
- *
- * @author jrwie
- */
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
- /**
-  * Updated connection to database with Dynamic methods
-  * @author Taha
-  */
 public class dbconnect {
-    private static String user = System.getenv("DB_USER");
-    private static String password = System.getenv("DB_PASSWORD");
-    private static String road = "jdbc:mysql://" + System.getenv("DB_HOST") + ":" + System.getenv("DB_PORT") + "/" + System.getenv("DB_NAME");
-    
-    public dbconnect(){
-    }
-    
-    public static Connection connect(){
+    private static final String USER = "root";
+    private static final String PASSWORD = "password123";
+    private static final String HOST = "localhost";
+    private static final String PORT = "3308";
+    private static final String DATABASE = "userlogin";
+    private static final String ROAD = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
+
+    public dbconnect() {}
+
+    public static Connection connect() {
         Connection con;
-        try{
-            con = DriverManager.getConnection(road, user, password);
+        try {
+            con = DriverManager.getConnection(ROAD, USER, PASSWORD);
             return con;
-        }catch (Exception e){
-            System.out.println("bin in der catch von dbconnect");
+        } catch (SQLException e) {
+            System.out.println("Failed to connect to the database");
             e.printStackTrace();
         }
         return null;
     }
 
-    public static String getUser(){
-        return user;
+    public static String getUser() {
+        return USER;
     }
-    public static String getPassword(){
-        return password;
+
+    public static String getPassword() {
+        return PASSWORD;
     }
-    public static String getRoad(){
-        return road;
+
+    public static String getRoad() {
+        return ROAD;
     }
 }

@@ -12,7 +12,7 @@ services:
       MYSQL_USER: taha
       MYSQL_PASSWORD: password123
     ports:
-      - "3306:3306"
+      - "3307:3306"  # Changed to avoid conflict with local MySQL
     volumes:
       - db_data:/var/lib/mysql
 
@@ -22,7 +22,7 @@ services:
       dockerfile: Dockerfile
     container_name: java-app
     ports:
-      - "8080:8080"
+      - "8080:8080"  # Assuming your application runs on port 8080
     depends_on:
       - db
     environment:
