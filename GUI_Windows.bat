@@ -1,4 +1,5 @@
 @echo off
+setlocal
 
 cd databases
 
@@ -13,3 +14,6 @@ cd ../login
 call mvn clean package
 
 call mvn javafx:run
+
+endlocal
+pause
