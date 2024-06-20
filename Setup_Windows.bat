@@ -26,7 +26,8 @@ if %errorlevel% neq 0 (
     
     echo Setting environment variables...
     setx MAVEN_HOME "%MAVEN_DIR%"
-    setx PATH "%PATH%;%MAVEN_DIR%\bin"
+    set "PathAdd=%MAVEN_DIR%\bin"
+    setx PATH "%PATH%;%PathAdd%"
     
     echo Maven installed successfully.
     echo Please restart your Command Prompt and run this script again.
