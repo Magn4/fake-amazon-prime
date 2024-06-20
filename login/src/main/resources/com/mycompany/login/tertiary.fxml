@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane id="AnchorPane" prefHeight="1300.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.login.TertiaryController">
+   <children>
+      <ScrollPane prefHeight="800.0" prefWidth="913.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1300.0" prefWidth="900.0" style="-fx-background-color: black;">
+               <children>
+                  <ImageView fx:id="imagebanner" fitHeight="290.0" fitWidth="900.0" layoutY="94.0" nodeOrientation="INHERIT" pickOnBounds="true" />
+                  <VBox layoutX="59.0" layoutY="914.0" prefHeight="313.0" prefWidth="782.0" style="-fx-border-color: #494949; -fx-border-radius: 5; -fx-border-width: 2;">
+                     <children>
+                        <Label text="Comments" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="22.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="25.0" top="25.0" />
+                           </padding>
+                        </Label>
+                        <HBox fillHeight="false" prefHeight="35.0" prefWidth="760.0">
+                           <children>
+                              <Label fx:id="username0" text="Anna Lisa S." textFill="DARKGRAY">
+                                 <font>
+                                    <Font name="Arial Bold" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="52.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@user.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="date0" prefHeight="44.0" prefWidth="110.0" text="12.Juni.2024" textFill="DARKGRAY">
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Rating fx:id="rating0" disable="true" prefHeight="34.0" prefWidth="176.0" rating="0.0">
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </Rating>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="34.0" prefWidth="760.0">
+                           <children>
+                              <Label fx:id="comment0" prefHeight="31.0" prefWidth="736.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="25.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fillHeight="false" prefHeight="35.0" prefWidth="760.0">
+                           <children>
+                              <Label fx:id="username1" text="Markus T." textFill="DARKGRAY">
+                                 <font>
+                                    <Font name="Arial Bold" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="52.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@user.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="date1" prefHeight="44.0" prefWidth="110.0" text="10.Juni.2024" textFill="DARKGRAY">
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Rating fx:id="rating1" disable="true" prefHeight="34.0" prefWidth="176.0" rating="3.0">
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </Rating>
+                           </children>
+                        </HBox>
+                        <HBox fillHeight="false" prefHeight="34.0" prefWidth="760.0">
+                           <children>
+                              <Label fx:id="comment1" prefHeight="31.0" prefWidth="736.0" text="&quot;Der Film war insgesamt in Ordnung. Die Handlung hatte einige interessante Momente.&quot;" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="25.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fillHeight="false" prefHeight="35.0" prefWidth="760.0">
+                           <children>
+                              <Label fx:id="username2" text="David K." textFill="DARKGRAY">
+                                 <font>
+                                    <Font name="Arial Bold" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="52.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@user.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="date2" prefHeight="44.0" prefWidth="110.0" text="09.Juni.2024" textFill="DARKGRAY">
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Rating fx:id="rating2" disable="true" prefHeight="34.0" prefWidth="176.0">
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </Rating>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="34.0" prefWidth="760.0">
+                           <children>
+                              <Label fx:id="comment2" prefHeight="31.0" prefWidth="736.0" text="&quot;Leider hat mich der Film enttäuscht. Die Handlung war vorhersehbar und es fehlte an Spannung.&quot;" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets bottom="30.0" left="25.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="imagelogo" fitHeight="100.0" fitWidth="500.0" layoutX="59.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@jokerlogo.PNG" />
+                     </image>
+                  </ImageView>
+                  <JFXTextArea fx:id="moviedescript" editable="false" layoutX="59.0" layoutY="531.0" prefHeight="255.0" prefWidth="782.0">
+                     <font>
+                        <Font name="Arial Black" size="18.0" />
+                     </font>
+                  </JFXTextArea>
+                  <ImageView fx:id="backbutton" fitHeight="73.0" fitWidth="39.0" layoutX="19.0" layoutY="20.0" onMouseClicked="#onBackToSecond" opacity="0.5" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@a99rnbdjdo7qbirto4a5ivqhr3.png" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="707.0" layoutY="875.0" prefHeight="26.0" prefWidth="130.0" style="-fx-border-color: #494949; -fx-border-radius: 5; -fx-border-width: 1;">
+                     <children>
+                        <JFXButton onMouseClicked="#onAddComment" styleClass="addComment" text="+ Add Comment" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <Label fx:id="genre0" layoutX="85.0" layoutY="826.0" style="-fx-background-color: #;" text="Comedy" textFill="#d4d4d4">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="genre1" layoutX="185.0" layoutY="826.0" textFill="#d4d4d4">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="genre2" layoutX="285.0" layoutY="826.0" textFill="#d4d4d4">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
