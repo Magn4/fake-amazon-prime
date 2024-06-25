@@ -1,39 +1,40 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.login;
-import java.sql.*;
 
-/**
- *
- * @author jrwie
- */
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class dbconnect {
-    private static String user = "root";
-    private static String password = "asd123";
-    private static String road = "jdbc:mysql://localhost:3306/mysql";
-    
-    public dbconnect(){
-    }
-    
-    public static Connection connect(){
+    private static final String USER = "root";
+    private static final String PASSWORD = "password123";
+    private static final String HOST = "localhost";
+    private static final String PORT = "3308";
+    private static final String DATABASE = "userlogin";
+    private static final String ROAD = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
+
+    public dbconnect() {}
+
+    public static Connection connect() {
         Connection con;
-        try{
-            con = DriverManager.getConnection(road,user,password);
-            return(con);
-        }catch (Exception e){
-            System.out.println("bin in der catch von dbconnect");
+        try {
+            con = DriverManager.getConnection(ROAD, USER, PASSWORD);
+            return con;
+        } catch (SQLException e) {
+            System.out.println("Failed to connect to the database");
+            e.printStackTrace();
         }
         return null;
     }
-    public static String getUser(){
-        return user;
+
+    public static String getUser() {
+        return USER;
     }
-    public static String getPassword(){
-        return password;
+
+    public static String getPassword() {
+        return PASSWORD;
     }
-    public static String getRoad(){
-        return road;
+
+    public static String getRoad() {
+        return ROAD;
     }
 }
