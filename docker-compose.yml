@@ -22,7 +22,7 @@ services:
       dockerfile: Dockerfile
     container_name: java-app
     ports:
-      - "8080:8080"  # Assuming your application runs on port 8080
+      - "8080:8080"  
     depends_on:
       - db
     environment:
