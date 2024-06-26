@@ -47,3 +47,18 @@ mvn javafx:run
 ![Setup_Windows](/Screenshots/Setup_Windows.png)
 ## Deploy the GUI:
 ![GUI_Windows](/Screenshots/GUI_Windows.png)
+
+
+# 7. **Security implementations:**
+
+## 1. Sensetive infos:
+
+- I have added all sensetive informations like login usernames and password to a secrets.properties file and added it to the .gitignore file.
+	These secrets can be interacted with by importing the properties file, and then using the Property getter commands.
+
+
+## 2. Securing project against *SQL Injections*:
+
+
+## 3. Incrypting Login infos in Database:
+
