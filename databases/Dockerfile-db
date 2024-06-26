@@ -1,13 +1,12 @@
 FROM mysql:8.0
 
-# Set environment variables for MySQL
-ENV MYSQL_DATABASE=userlogin
-ENV MYSQL_ROOT_PASSWORD=password123
-ENV MYSQL_USER=taha
-ENV MYSQL_PASSWORD=password123
+# Set a default value for the secrets file path
+ENV SECRETS_FILE_PATH login/src/main/resources/secrets.properties
+
+# Copy the secrets.properties file into the container
+COPY secrets.properties ${SECRETS_FILE_PATH}
 
 # Copy custom MySQL configuration file into the container
-# This my.cnf file customisation makes the database open to external connection from port 3308
 COPY my.cnf /etc/mysql/my.cnf
 
 # Copy database schema and initialization scripts
@@ -19,6 +18,11 @@ COPY userlogin_movie.sql /docker-entrypoint-initdb.d/
 COPY userlogin_moviegenre.sql /docker-entrypoint-initdb.d/
 COPY userlogin_movielanguage.sql /docker-entrypoint-initdb.d/
 COPY userlogin_user.sql /docker-entrypoint-initdb.d/
+
+# Add entrypoint script to load environment variables from the secrets file
+COPY entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 # Expose the MySQL port
 EXPOSE 3308

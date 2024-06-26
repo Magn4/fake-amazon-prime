@@ -76,7 +76,6 @@
     </plugins>
   </build>
   <properties>
-    <javafx.platform>mac</javafx.platform>
     <maven.compiler.target>11</maven.compiler.target>
     <maven.compiler.source>11</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
