@@ -1,40 +1,50 @@
 package com.mycompany.login;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class dbconnect {
-    private static final String USER = "root";
-    private static final String PASSWORD = "password123";
-    private static final String HOST = "localhost";
-    private static final String PORT = "3308";
-    private static final String DATABASE = "userlogin";
-    private static final String ROAD = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
 
-    public dbconnect() {}
+    private static String user= "root";
+    private static String password;
+    private static String road = "jdbc:mysql://localhost:3308/mysql";
+
+    static {
+        try {
+            password = new String(Files.readAllBytes(Paths.get("../Secrets/db_password.txt"))).trim();
+        } catch (IOException e) {
+            System.out.println("Error reading database credentials from files.");
+            e.printStackTrace();
+        }
+    }
+
+    public dbconnect() {
+    }
 
     public static Connection connect() {
         Connection con;
         try {
-            con = DriverManager.getConnection(ROAD, USER, PASSWORD);
+            con = DriverManager.getConnection(road, user, password);
             return con;
-        } catch (SQLException e) {
-            System.out.println("Failed to connect to the database");
+        } catch (Exception e) {
+            System.out.println("bin in der catch von dbconnect");
             e.printStackTrace();
         }
         return null;
     }
 
     public static String getUser() {
-        return USER;
+        return user;
     }
 
     public static String getPassword() {
-        return PASSWORD;
+        return password;
     }
 
     public static String getRoad() {
-        return ROAD;
+        return road;
     }
 }

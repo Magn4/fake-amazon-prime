@@ -3,16 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.login;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.mycompany.Utilities.EncryptionUtil;
 
 /**
  *
  * @author jrwie
  */
+
+/**
+ * Implementation of SQL Injection security
+ * @author taha
+ */
 public class LoginCheck {
     
     private String user;
     private String password;
+    private Connection con;
     
     
     public LoginCheck(String u,String p){
@@ -34,32 +45,43 @@ public class LoginCheck {
     }
     /*
     public static void main(String[] args){
-        //System.out.println("ich war in der class");
+        //System.out.println("ich war in der class"); 
         LoginCheck test = new LoginCheck("Admin","1234");
         test.userCompare();
     }
     */
     public boolean userCompare(){
-        Connection con;
         try{
             
-            //con = connection
             con = dbconnect.connect();
-            Statement stm = con.createStatement();
             
-            
-            String sql = "SELECT * FROM userlogin.user WHERE BINARY User_name='"+this.getUser()+"' and BINARY User_password='"+this.getPassword()+"';";
-            
-            //rs = resultSet
-            ResultSet rs = stm.executeQuery(sql);
+            // Encrypt password before comparing it with the DB        
+            String encryptedPassword = EncryptionUtil.encrypt(this.getPassword());
+
+            // Using a parametirized query to prevent SQL injections
+            String sql = "SELECT * FROM userlogin.user WHERE BINARY User_name = ? AND BINARY User_password = ?";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, this.getUser());
+            pstmt.setString(2, encryptedPassword);
+
+            ResultSet rs = pstmt.executeQuery();        
             
             if(rs.next()){
                 System.out.println("right userlogin");
+                SessionManager.userID = rs.getInt("User_ID");
+                if(rs.getBoolean("User_admin")){
+                    SessionManager.admin = true;
+                }else{
+                    SessionManager.admin = false;
+                }
+                con.close();
                 return(true);
             }else{
                 System.out.println("false userlogin");
+                con.close();
                 return(false);
             }
+            
             
         }catch (Exception e){
             System.out.println(e);
@@ -68,35 +90,26 @@ public class LoginCheck {
         return(false);
     }
     
-    //war eine funktion die dazu da war die ganze tabelle aus zu geben
-    private static void testverbindung(){
-        Connection con;
-        //System.out.println("ich war in der methode");
-        try{
-            //Class.forName("com.mysql.cj.jdbc.driver");
-            //System.out.println("ich war in der try");
-            
-            //con = connection
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","asd123");
-            
-            //System.out.println(con);
-            
-            //stm = Statement
-            Statement stm = con.createStatement();
-            
-            
-            String sql = "SELECT * FROM userlogin.user_table;";
-            
-            //rs = resultSet
-            ResultSet rs = stm.executeQuery(sql);
-            
-            while(rs.next()){
-                System.out.println(rs.getInt("UserID")+" "+rs.getString("UserName")+" "+rs.getString("Password"));
-            }
-            
-        }catch (Exception e){
-            System.out.println(e);
-            System.out.println("ich war in der chatch");
-        }
-    }
+//    public int getUserID(String User_name) throws SQLException {
+//        con = dbconnect.connect();
+//        
+//        int UserID = 0;
+//         String sql = "SELECT User_ID FROM userlogin.user WHERE User_name = ?";
+//
+//        try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+//        // Set the value for the parameter
+//              pstmt.setString(1, User_name);
+//        
+//        // Execute the query
+//        try (ResultSet rs = pstmt.executeQuery()) {
+//            if (rs.next()) {
+//                UserID = rs.getInt("User_ID");
+//            }
+//        }
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//        con.close();
+//        return UserID;
+//    }
 }

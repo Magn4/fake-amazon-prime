@@ -8,6 +8,7 @@ package com.mycompany.login;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -143,7 +144,7 @@ public class RegisterController implements Initializable {
     }
 
     @FXML
-    private void register(ActionEvent event) {
+    private void register(ActionEvent event) throws IOException {
         String username = username_text.getText();
         String email = email_text.getText();
         String password;
@@ -191,6 +192,23 @@ public class RegisterController implements Initializable {
             case 0:
                 System.out.println("error 0");
                 break;
+            case 1:
+                System.out.println("error 1");
+                errortext.setText("there is already an account with this Username");
+                username_text.setText("");
+                break;
+            case 2:
+                System.out.println("error 2");
+                errortext.setText("there is already an account that uses this Email!");
+                email_text.setText("");
+                break;
+            case 3:
+                root = FXMLLoader.load(getClass().getResource("registerdone.fxml"));
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+                
             default:
                 System.out.println("etwas ist im switch case schief gelaufen");
         }

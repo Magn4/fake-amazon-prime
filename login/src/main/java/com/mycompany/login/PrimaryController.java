@@ -6,7 +6,9 @@ package com.mycompany.login;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,6 +44,7 @@ public class PrimaryController implements Initializable {
     private CheckBox pass_toggle;
     @FXML
     private TextField pass_text;
+    
 
     /**
      * Initializes the controller class.
@@ -52,7 +55,7 @@ public class PrimaryController implements Initializable {
     }    
 
     @FXML
-    private void handleButtonAction(ActionEvent event) throws IOException {
+    private void handleButtonAction(ActionEvent event) throws IOException, SQLException {
         String username = inputUserID.getText();
         String password;
         if(pass_toggle.isSelected()){
@@ -63,6 +66,14 @@ public class PrimaryController implements Initializable {
         LoginCheck a = new LoginCheck(username,password);
         if(a.userCompare()){
             System.out.println("Login success.");
+            System.out.println(SessionManager.userID);
+            if (SessionManager.admin) {
+                System.out.println("is admin");
+            }else{
+                System.out.println("no admin");
+            }
+
+
             root = FXMLLoader.load(getClass().getResource("secondary.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -114,6 +125,15 @@ public class PrimaryController implements Initializable {
             pass_hidden.requestFocus();
             pass_hidden.positionCaret(pass_hidden.getText().length());
         }
+    }
+
+    @FXML
+    private void testseite(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("adminmenu.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
 }
