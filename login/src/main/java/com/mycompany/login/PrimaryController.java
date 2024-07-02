@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -44,6 +45,8 @@ public class PrimaryController implements Initializable {
     private CheckBox pass_toggle;
     @FXML
     private TextField pass_text;
+    @FXML
+    private Button skip;
     
 
     /**
@@ -51,9 +54,17 @@ public class PrimaryController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        skip.setVisible(false);
         // TODO
     }    
 
+    /**
+    * Handles the button action event for user login.
+    *
+    * @param event The ActionEvent triggered by the button click.
+    * @throws IOException if an input or output exception occurs.
+    * @throws SQLException if a database access error occurs.
+    */
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException, SQLException {
         String username = inputUserID.getText();
@@ -95,6 +106,12 @@ public class PrimaryController implements Initializable {
         
     }
 
+    /**
+    * Handles the mouse event for user registration.
+    *
+    * @param event The MouseEvent triggered by the mouse click.
+    * @throws IOException if an input or output exception occurs.
+    */
     @FXML
     private void register(MouseEvent event) throws IOException {
 
@@ -106,6 +123,11 @@ public class PrimaryController implements Initializable {
         stage.show();
     }
 
+    /**
+    * Toggles the visibility of the password between plain text and hidden text.
+    *
+    * @param event The ActionEvent triggered by the toggle action.
+    */
     @FXML
     private void showpassword(ActionEvent event) {
         if(pass_toggle.isSelected()){
@@ -127,6 +149,12 @@ public class PrimaryController implements Initializable {
         }
     }
 
+    /**
+    * Handles the action event to navigate to the test/admin menu page.
+    *
+    * @param event The ActionEvent triggered by the button click.
+    * @throws IOException if an input or output exception occurs.
+    */
     @FXML
     private void testseite(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("adminmenu.fxml"));
