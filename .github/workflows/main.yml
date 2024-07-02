@@ -27,4 +27,4 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Push Database Docker Image to GHCR
-      run: docker push ghcr.io/${{ github.repository }}/userlogin-db:latest
+      run: docker push ghcr.io/Magn4/fake-amazon-prime/userlogin-db:latest
